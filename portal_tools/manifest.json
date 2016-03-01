@@ -1,0 +1,45 @@
+{
+  "name": "MyDirect Portal Tools",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "This an extension used to support development on the MyDirect portal Apps",
+  "icons": {
+    "128": "images/icon_128.png",
+    "48": "images/icon_48.png"
+  },
+  "browser_action": {
+    "default_title": "My Direct Portal Tools",
+    "default_icon": {
+      "19": "images/icon_19.png",
+      "48": "images/icon_48.png"
+    },
+    "default_popup": "html/main.html"
+  },
+  "options_ui": {
+    "chrome_style": true,
+    "page": "html/options.html"
+  },
+  "permissions": [
+    "tabs",
+    "idle"
+  ],
+  "web_accessible_resources": [
+    "js/inject.js"
+  ],
+  "content_scripts": [
+    {
+      "js": [
+        "js/script_injector.js"
+      ],
+      "matches": [
+        "https://mydirect.metlife.com/*",
+        "https://qa.mydirect.metlife.com/*",
+        "https://int.mydirect.metlife.com/*",
+        "https://int2.mydirect.metlife.com/*",
+        "https://dev.mydirect.metlife.com/*",
+        "https://dev2.mydirect.metlife.com/*",
+        "http://localhost/*"
+      ]
+    }
+  ]
+}
